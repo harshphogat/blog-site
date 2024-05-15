@@ -4,19 +4,19 @@ import appwriteService from "../appwrite/config";
 import { useSelector, useDispatch } from "react-redux";
 import { Query } from "appwrite";
 
-import { getAllPost } from "../store/authSlice";
+import { getUserPost } from "../store/authSlice";
 
 function AllPosts() {
   const dispatch = useDispatch();
 
   const [posts, setPosts] = useState([]);
   let user_id = null;
-  useSelector((state) => (user_id = state.userData.$id));
+  useSelector((state) => (user_id = state.userData?.$id));
 
   console.log(user_id);
 
   let allPost = null;
-  useSelector((state) => (allPost = state.allPost));
+  useSelector((state) => (allPost = state?.userPost));
   if (allPost) {
     console.log("ALL POSTS : IN ALLPOST FILE", allPost);
   }
@@ -29,11 +29,14 @@ function AllPosts() {
         .then((posts) => {
           console.log(posts);
           if (posts) {
-            console.log("USE EFFECT : ", posts.documents);
+            console.log("USE EFFECT : ", posts?.documents);
             setPosts(posts.documents);
-            dispatch(getAllPost(posts.documents));
+            dispatch(getUserPost(posts?.documents));
           }
         });
+    }else{
+      setPosts(allPost)
+      console.log("STORE POSTS : ", allPost)
     }
   }, []);
 

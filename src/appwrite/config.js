@@ -96,11 +96,14 @@ export class Service {
   async uploadFile(file) {
     console.log(conf.appwriteBucketId);
     try {
-      return await this.storage.createFile(
+
+      const data =  await this.storage.createFile(
         conf.appwriteBucketId,
         ID.unique(),
         file
       );
+      console.log("Uploading files completed : ",data);
+      return data;
     } catch (error) {
       console.log("Appwrite service error :: uploadFile :: error", error);
     }

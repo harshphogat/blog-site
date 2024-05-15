@@ -21,11 +21,15 @@ const authSlice = createSlice({
     logout: (state, action) => {
       state.status = false;
       state.userData = null;
+      state.allPost = null;
+      state.userPost = null;
     },
     getUserPost : (state,action) => {
+      state.userPost = action.payload;
       console.log("USER POSTS IN STORE: ", action.payload);
     },
     getAllPost : (state, action) => {
+      state.allPost = action.payload;
       console.log("ALL POST IN STORE : ", action.payload);
     }
 
