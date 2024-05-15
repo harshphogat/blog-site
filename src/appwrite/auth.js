@@ -54,12 +54,14 @@ export class AuthService {
     try {
       const account = await this.account.get();
       console.log("USER ACCOUNT  : ", account);
+
+      return account;
       
-      if (account.userData) {
-        return account;
-      } else {
-        console.log("APPWRITE ERROR IN GETTING USER DATA");
-      }
+      // if (account.userData) {
+      //   return account;
+      // } else {
+      //   console.log("APPWRITE ERROR IN GETTING USER DATA");
+      // }
     } catch (error) {
       console.log("Appwrite service error :: getCurrentUser :: error", error);
     }

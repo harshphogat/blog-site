@@ -35,7 +35,6 @@ function App() {
     <div className='min-h-screen w-full flex flex-wrap justify-center bg-gray-200'>
       <div className='w-full block'>
           <Header /> 
-          <p>This is after header</p> 
             <Outlet />
           <Footer />
       </div>
