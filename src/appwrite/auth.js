@@ -39,7 +39,12 @@ export class AuthService {
         email,
         password
       );
-      return account;
+
+      if (account) {
+        return account;
+      } else {
+        console.log("APPWRITE ERROR IN LOGIN");
+      }
     } catch (error) {
       throw error;
     }
@@ -47,7 +52,14 @@ export class AuthService {
 
   async getCurrentUser() {
     try {
-      return await this.account.get();
+      const account = await this.account.get();
+      console.log("USER ACCOUNT  : ", account);
+      
+      if (account.userData) {
+        return account;
+      } else {
+        console.log("APPWRITE ERROR IN GETTING USER DATA");
+      }
     } catch (error) {
       console.log("Appwrite service error :: getCurrentUser :: error", error);
     }
@@ -57,7 +69,12 @@ export class AuthService {
 
   async logOut() {
     try {
-      await this.account.deleteSessions();
+      const account = await this.account.deleteSessions();
+      if (account) {
+        return account;
+      } else {
+        console.log("APPWRITE ERROR IN GETTING LOGOUT");
+      }
     } catch (error) {
       console.log("Appwrite service error :: logout :: error", error);
     }

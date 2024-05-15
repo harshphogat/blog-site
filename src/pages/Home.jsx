@@ -9,10 +9,13 @@ export default function Home() {
     appwriteService.getPosts().then((posts) => {
       if (posts) {
         setPosts(posts.documents);
+      }else{
+        setPosts([])
       }
     });
   }, []);
 
+  console.log("HOME POSTS LENGTH" , posts.length)
   if (posts.length === 0) {
     return (
       <div className="w-full py-8 mt-4 text-center">
@@ -30,6 +33,7 @@ export default function Home() {
       </div>
     );
   }
+
   return (
     <div className="w-full py-8">
       <Container>
