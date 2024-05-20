@@ -36,6 +36,7 @@ function App() {
       <div className='w-full block'>
           <Header /> 
             <Outlet />
+            {console.log("OUTLET CALLED--")}
           <Footer />
       </div>
     </div>

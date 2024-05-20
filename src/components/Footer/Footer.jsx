@@ -4,6 +4,7 @@ import Logo from '../Logo'
 
 function Footer() {
     let currentYear = new Date().getFullYear();
+    console.log("FOOTER CALLED :");
 
   return (
     <section className="relative overflow-hidden py-10 bg-gray-400 border border-t-2 border-t-black">
