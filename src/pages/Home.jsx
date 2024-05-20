@@ -14,6 +14,9 @@ export default function Home() {
     console.log("ALL POSTS : IN ALLPOST FILE", totalPost);
   }
 
+  const logoutState = useSelector(state => state.status)
+  console.log(logoutState)
+
   useEffect(() => {
     if (!totalPost) {
       appwriteService.getPosts().then((posts) => {
@@ -28,7 +31,7 @@ export default function Home() {
     } else {
       setPosts(totalPost);
     }
-  }, []);
+  }, [logoutState]);
 
   console.log("HOME POSTS LENGTH", posts.length);
   if (posts.length === 0) {

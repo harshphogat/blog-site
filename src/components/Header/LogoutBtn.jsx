@@ -4,16 +4,14 @@ import authService from "../../appwrite/auth";
 import { logout } from "../../store/authSlice";
 import { Link, useNavigate } from "react-router-dom";
 
-
 function LogoutBtn() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const logoutHandler = () => {
-    authService.logOut()
-      .then(dispatch(logout()));
+    authService.logOut().then(dispatch(logout()));
 
-    navigate('/')
+    navigate("/");
   };
 
   return (
