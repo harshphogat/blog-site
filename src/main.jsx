@@ -81,18 +81,15 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <Provider store={store}>
+
+
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<App />}>
-            {/* <Route index element={<Home />} /> */}
-            <Route 
-              path="/"
-              element={<Home />}
-
-            />
+            <Route index element={<Home />} />
 
             <Route
-              path="/login"
+              path="login"
               element={
                 <AuthLayout authentication={false}>
                   <Login />
@@ -101,7 +98,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
             />
 
             <Route
-              path="/signup"
+              path="signup"
               element={
                 <AuthLayout authentication={false}>
                   <Signup />
@@ -110,7 +107,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
             />
 
             <Route
-              path="/all-posts"
+              path="all-posts"
               element={
                 <AuthLayout authentication>
                   {" "}
@@ -120,7 +117,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
             />
 
             <Route
-              path="/add-post"
+              path="add-post"
               element={
                 <AuthLayout authentication>
                   {" "}
@@ -130,7 +127,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
             />
 
             <Route
-              path="/edit-post/:slug"
+              path="edit-post/:slug"
               element={
                 <AuthLayout authentication>
                   {" "}
@@ -138,7 +135,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
                 </AuthLayout>
               }
             />
-            <Route path="/post/:slug" element={<Post />} />
+            <Route path="post/:slug" element={<Post />} />
           </Route>
         </Routes>
       </BrowserRouter>
