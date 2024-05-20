@@ -17,21 +17,21 @@ export default function Home() {
   const logoutState = useSelector(state => state.status)
   console.log(logoutState)
 
-  // useEffect(() => {
-  //   if (!totalPost) {
-  //     appwriteService.getPosts().then((posts) => {
-  //       if (posts) {
-  //         setPosts(posts?.documents);
-  //         //dispatch to store
-  //         dispatch(getAllPost(posts?.documents));
-  //       } else {
-  //         setPosts([]);
-  //       }
-  //     });
-  //   } else {
-  //     setPosts(totalPost);
-  //   }
-  // }, [logoutState]);
+  useEffect(() => {
+    if (!totalPost) {
+      appwriteService.getPosts().then((posts) => {
+        if (posts) {
+          setPosts(posts?.documents);
+          //dispatch to store
+          dispatch(getAllPost(posts?.documents));
+        } else {
+          setPosts([]);
+        }
+      });
+    } else {
+      setPosts(totalPost);
+    }
+  }, [logoutState]);
 
   console.log("HOME POSTS LENGTH", posts.length);
   if (posts.length === 0) {

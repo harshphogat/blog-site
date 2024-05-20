@@ -7,11 +7,11 @@ import { useNavigate } from "react-router-dom";
 function Header() {
   const authStatus = useSelector((state) => {
     console.log(state);
-    return state.status; 
+    return state?.status;
   });
   const navigate = useNavigate();
 
-  console.log("Header called")
+  console.log("Header called");
 
   const navItems = [
     {
@@ -66,7 +66,7 @@ function Header() {
               ) : null
             )}
             {console.log("AUTH STATUS : ")}
-              {console.log(authStatus)}
+            {console.log(authStatus)}
             {authStatus && (
               <li>
                 <LogoutBtn />
