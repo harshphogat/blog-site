@@ -173,7 +173,9 @@ ReactDOM.createRoot(document.getElementById("root")).render(
 
       <BrowserRouter >
         <Routes>
-          <Route path="/" element={<App />} >
+          {
+            ANDRoutes.map((route, index) => {
+              return  <Route path="/" element={<App />} >
 
             <Route index element={<Home /> }/>
 
@@ -219,6 +221,9 @@ ReactDOM.createRoot(document.getElementById("root")).render(
             />
             <Route path="post/:slug" element={<Post />} />
           </Route>
+            })
+          }
+         
         </Routes>
       </BrowserRouter>
     </Provider>
